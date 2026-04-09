@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompliAgent | Regulatory Compliance System</title>
+    <!-- Add SEO and Description for Best Practices -->
+    <meta name="description" content="Automated regulatory compliance system for tracking trading activities and generating reports in real-time.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i data-lucide="shield-check"></i>
+                </div>
+                <h2>CompliAgent</h2>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#" class="nav-item active" data-target="dashboard">
+                    <i data-lucide="layout-dashboard"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-target="reports">
+                    <i data-lucide="file-text"></i> Regulatory Reports
+                </a>
+                <a href="#" class="nav-item" data-target="audit">
+                    <i data-lucide="git-merge"></i> Audit Node Graph
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i> Settings
+                </a>
+            </nav>
+
+            <div class="system-status">
+                <div class="status-indicator live"></div>
+                <span>System Live: SEC Connected</span>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-nav">
+                <div class="search-bar glass-panel">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search portfolios, trades, or FINRA rules...">
+                </div>
+                <div class="user-actions">
+                    <button class="icon-btn glass-panel"><i data-lucide="bell"></i></button>
+                    <div class="avatar glass-panel">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff" alt="User Avatar">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <section id="dashboard" class="view-section active">
+                <div class="page-header">
+                    <h1>Real-Time <span class="text-gradient">Compliance Overview</span></h1>
+                    <p>Live monitoring of trading activities and portfolio positions.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel" id="stat-transactions">
+                        <div class="stat-header">
+                            <h3>Total Transactions Analyzed</h3>
+                            <i data-lucide="activity" class="text-blue"></i>
+                        </div>
+                        <div class="stat-value" id="totalTrades">45,231</div>
+                        <div class="stat-trend positive"><i data-lucide="trending-up"></i> +12% today</div>
+                    </div>
+                    <div class="stat-card glass-panel" id="stat-risk">
+                        <div class="stat-header">
+                            <h3>Overall Risk Score</h3>
+                            <i data-lucide="alert-triangle" class="text-rose"></i>
+                        </div>
+                        <div class="stat-value" id="riskScore">Mild</div>
+                        <div class="stat-trend negative"><i data-lucide="trending-down"></i> 2 Open Anomalies</div>
+                    </div>
+                    <div class="stat-card glass-panel" id="stat-deadline">
+                        <div class="stat-header">
+                            <h3>Next Filing Deadline</h3>
+                            <i data-lucide="calendar" class="text-indigo"></i>
+                        </div>
+                        <div class="stat-value">3 Days</div>
+                        <div class="stat-trend neutral">Form PF (SEC)</div>
+                    </div>
+                </div>
+
+                <div class="complex-grid">
+                    <!-- Predictive Compliance Risk Topography -->
+                    <div class="glass-panel topography-card">
+                        <div class="card-header">
+                            <h2>Predictive Risk Topography <span class="badge new-badge">Novel</span></h2>
+                            <p class="subtitle">Live multi-dimensional view of portfolio compliance risk.</p>
+                        </div>
+                        <div class="topography-container" id="topographyGrid">
+                            <!-- JS will populate the matrix -->
+                        </div>
+                        <div class="topography-legend">
+                            <span class="legend-item"><span class="color-box safe"></span> Compliant</span>
+                            <span class="legend-item"><span class="color-box warn"></span> Warning</span>
+                            <span class="legend-item"><span class="color-box danger"></span> Breach Risk</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Trading Activities -->
+                    <div class="glass-panel recent-activities">
+                        <div class="card-header">
+                            <h2>Flagged Activities</h2>
+                        </div>
+                        <ul class="activity-list" id="activityList">
+                            <li class="activity-item alert-animate">
+                                <div class="activity-icon danger glass-panel"><i data-lucide="alert-circle"></i></div>
+                                <div class="activity-details">
+                                    <h4>Large Block Trade - AAPL</h4>
+                                    <p>Potential wash sale detected.</p>
+                                </div>
+                                <span class="time">Just now</span>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon warn glass-panel"><i data-lucide="clock"></i></div>
+                                <div class="activity-details">
+                                    <h4>Position Limit Warning</h4>
+                                    <p>Derivatives exposure nearing limits.</p>
+                                </div>
+                                <span class="time">15m ago</span>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon safe glass-panel"><i data-lucide="check-circle"></i></div>
+                                <div class="activity-details">
+                                    <h4>FINRA Report Auto-filed</h4>
+                                    <p>Successfully submitted successfully.</p>
+                                </div>
+                                <span class="time">1h ago</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports View -->
+            <section id="reports" class="view-section" style="display: none;">
+                <div class="page-header">
+                    <h1>Automated <span class="text-gradient">Regulatory Reports</span></h1>
+                    <p>Schedule, generate, and review auto-generated compliance filings.</p>
+                </div>
+                
+                <!-- Automation Scheduler -->
+                <div class="scheduler-panel glass-panel" style="margin-bottom: 2rem; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--accent-emerald);">
+                    <div class="scheduler-info">
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="clock"></i> Daily Automation Engine Active</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">Next Batch Generation in: <span id="generationCountdown" style="color: var(--accent-blue); font-weight: 600; font-family: monospace; font-size: 1.1rem;">23:59:59</span></p>
+                    </div>
+                    <div class="scheduler-status" style="text-align: right;">
+                        <span class="badge new-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border-color: rgba(16, 185, 129, 0.4);">3 Pending Filings in Queue</span>
+                        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.5rem;"><i data-lucide="alert-circle" style="width: 12px; height: 12px; vertical-align: middle;"></i> Action required on 1 deadline</p>
+                    </div>
+                </div>
+
+                <div class="reports-grid">
+                    <!-- Report Card: SEC Form PF -->
+                    <div class="report-card glass-panel">
+                        <div class="report-status due">Due in 3 Days</div>
+                        <div class="report-icon"><i data-lucide="briefcase"></i></div>
+                        <h3>SEC Form PF</h3>
+                        <p>Private Fund reporting requirements.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-primary generate-btn" data-form="SEC Form PF"><i data-lucide="zap"></i> Auto-Generate</button>
+                        </div>
+                    </div>
+
+                    <!-- Report Card: FINRA TRACE -->
+                    <div class="report-card glass-panel">
+                        <div class="report-status ok">Up to Date</div>
+                        <div class="report-icon"><i data-lucide="bar-chart-2"></i></div>
+                        <h3>FINRA TRACE</h3>
+                        <p>Trade Reporting and Compliance Engine.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar safe" style="width: 100%;"></div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-outline" disabled><i data-lucide="check"></i> Submitted</button>
+                        </div>
+                    </div>
+
+                    <!-- Report Card: Basel III LCR -->
+                    <div class="report-card glass-panel">
+                        <div class="report-status warn">Gathering Data</div>
+                        <div class="report-icon"><i data-lucide="globe"></i></div>
+                        <h3>Basel III LCR</h3>
+                        <p>Liquidity Coverage Ratio monitoring.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar warn" style="width: 45%;"></div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="btn btn-primary generate-btn" data-form="Basel III LCR"><i data-lucide="zap"></i> Compile Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audit View -->
+            <section id="audit" class="view-section" style="display: none;">
+                <div class="page-header">
+                    <h1>Visual <span class="text-gradient">Audit Lineage</span> <span
+                            class="badge new-badge">Novel</span></h1>
+                    <p>Cryptographically verified visual node-graph of all data transformations.</p>
+                </div>
+                <div class="glass-panel audit-node-graph" id="auditGraph">
+                    <!-- Dynamic particles will flow along lines -->
+                    <svg class="connection-lines" width="100%" height="100%" style="position: absolute; top:0; left:0; pointer-events:none; z-index:0;">
+                        <!-- JS creates lines -->
+                    </svg>
+
+                    <div class="node-root" id="node-root-1" style="z-index:1;">Raw Market Data</div>
+                    <div class="connector">⬇</div>
+                    <div class="node-level" style="z-index:1;">
+                        <div class="node-item" id="node-ingest">Trade Ingestion</div>
+                        <div class="node-item" id="node-portfolio">Portfolio Valuation</div>
+                    </div>
+                    <div class="connector">⬇</div>
+                    <div class="node-root highlight" id="node-engine" style="z-index:1;">Risk Calculus Engine</div>
+                    <div class="connector">⬇</div>
+                    <div class="node-level" style="z-index:1;">
+                        <div class="node-item final" id="node-sec">SEC Form ADV Output</div>
+                        <div class="node-item final" id="node-log">Internal Audit Log</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- AI Copilot Chat -->
+        <div class="copilot-widget">
+            <button class="copilot-toggle" id="copilotToggle" aria-label="Toggle AI Companion">
+                <i data-lucide="bot"></i>
+                <span class="pulse-ring"></span>
+            </button>
+            <div class="copilot-panel glass-panel" id="copilotPanel">
+                <div class="copilot-header">
+                    <h3>AI Compliance Agent <span class="badge new-badge">Novel</span></h3>
+                    <button id="closeCopilot" aria-label="Close Chat"><i data-lucide="x"></i></button>
+                </div>
+                <div class="copilot-messages" id="copilotMessages">
+                    <div class="message bot-message">
+                        Hello! I am your Compliance Copilot. I continually monitor the portfolio. Ask me about SEC/FINRA rules or specific anomalies.
+                    </div>
+                </div>
+                <div class="copilot-input">
+                    <input type="text" id="copilotInput" placeholder="Ask about regulations or risks...">
+                    <button id="copilotSend" aria-label="Send Message"><i data-lucide="send"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Generative Toast UI Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Init icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
